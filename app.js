@@ -1,8 +1,9 @@
+let button = document.getElementById("yellowBtn");
+let button2 = document.getElementById("grayBtn");
+button2.disabled  = true;
 function startRecording(){
-    let button = document.getElementById("yellowBtn");
-    let button2 = document.getElementById("grayBtn");
-    button2.style.opacity = 1;
-    button.style.opacity = 0.3
+    button.disabled = true;
+    button2.disabled = false;
     window.addEventListener("keydown",keyDownHandler);
     window.addEventListener("keyup",keyUpHandler);
 }
@@ -24,8 +25,8 @@ function keyUpHandler(event){
 function stopRecording(){
     document.getElementById("yellow").textContent = "";
     document.getElementById("gray").textContent = "";
-    document.getElementById("yellowBtn").style.opacity = 1;
-    document.getElementById("grayBtn").style.opacity = 0.3;
+    button.disabled = false;
+    button2.disabled = true;
     window.removeEventListener("keydown",keyDownHandler);
     window.removeEventListener("keyup",keyUpHandler);
 }
